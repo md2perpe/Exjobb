@@ -1,0 +1,19 @@
+%\appendix
+\chapter{Covering Space}
+\section{Mathematical Definition}
+\newtheorem{dfn}{Definition}
+\begin{dfn}
+A continuous map $F:A \subset R^n \to R^n$ is a {\em homeomorphism} onto $F(A)$ if $F$ is one-to-one and the inverse $F^{-1}:F(A) \subset R^n \to R^n$ is continuous. In this case $A$ and $F(A)$ are {\em homeomorphic sets}.
+\end{dfn}
+\begin{dfn}
+If $X$ and $Y$ are two spaces, we say that $\pi: X \to Y$ is a {\em covering map} if
+  \begin{enumerate}
+	\item $\pi$ is continuous and $\pi(X)=Y$.
+	\item Each point $p \in Y$ has a neighborhood $U$ in $Y$ (to be called a {\em distinguished neighborhood of $p$} such that $$\pi^{-1}(U) = \bigcup_{\alpha} V_{\alpha},$$
+where the $V_{\alpha}$'s are pairwise disjoint open sets such that the restriction of $\pi$ to $V_{\alpha}$ is a homeomorphism of $V_{\alpha}$ onto $U$.
+  \end{enumerate}
+$X$ is then called a {\em covering space} of $Y$.
+\end{dfn}
+\section{What it Means in Practice}
+\todo{Change name of section?}
+

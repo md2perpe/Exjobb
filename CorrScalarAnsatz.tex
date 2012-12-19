@@ -1,0 +1,31 @@
+\subsection{Scalar Green function by ansatz}
+Looking back at eq.~(\ref{eq:scalargreen}), we can observe an important fact --- the only way $x$ and $y$ comes in is through $u$, the chordal distance. This springs from the requirement of $G$ to be invariant under the symmetries of $\AdS_{d+1}$.
+
+\subsubsection{Making the Ansatz}
+Considering this, we can take another approach for deriving $G$; we make the ansatz
+$$G(x,y)=H(u(x,y))$$
+and derive an ordinary linear differential equation for $H$, which we easily solve.
+
+\subsubsection{Deriving the Equation}
+From the ansatz and simple differentiation rules, one gets (???we get???)
+\begin{equation}\label{eq:boxg}
+\Box G = D^\mu D_\mu H(u) = D^\mu (H'(u) D_\mu u) 
+= H''(u) D^\mu u\, D_\mu u + H'(u) D^\mu D_\mu u.
+\end{equation}
+We will later (???in an Appendix???) show that
+$$D^\mu u\, D_\mu u = u(2+u)$$
+and
+$$D^\mu D_\mu u = (d+1)(1+u).$$
+Inserting this into eq.~(\ref{eq:geq}), we get
+\begin{equation}\label{eq:Hode}
+u(2+u) H''(u) + (d+1)(1+u) H'(u) - m^2 H(u) = 0\qquad\text{for $u \neq 0$}.
+\end{equation}
+
+\subsubsection{Solving the equation}
+Setting $u=-2z$, $H(u)=K(z)=K(-u/2)$ and $\frac{d}{du}=-\frac12 \frac{d}{dz}$, this transforms to
+$$z(1-z) K''(z) + (d+1)(1/2-z) K'(z) + m^2 K(z) = 0\qquad(u \neq 0).$$
+This equation we identify as the hypergeometric differential equation with solutions
+$$K(z) = A {}_2F_1(\frac{d}{2}+\nu, \frac{d}{2}-\nu; \frac{d+1}{2}; z) + B z^{(1-d)/2} {}_2F_1(\frac12+\nu, \frac12-\nu; \frac{3-d}{2}; z)$$
+i.e.
+$$H(u) = A {}_2F_1(\frac{d}{2}+\nu, \frac{d}{2}-\nu; \frac{d+1}{2}; -\frac{u}{2}) + B (-\frac{u}{2})^{(1-d)/2} {}_2F_1(\frac12+\nu, \frac12-\nu; \frac{3-d}{2}; -\frac{u}{2}).$$
+Though not obvious, this can in fact be transformed to the form of eq.~(\ref{eq:scalargreen}) by some transformation rules. (This is left to the reader as an exercise\dots)

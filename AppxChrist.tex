@@ -1,0 +1,18 @@
+%\appendix
+\chapter{Calculation of Christoffel Symbols}
+
+$$g_{\mu\nu} = x_0^{-2} \eta_{\mu\nu}$$
+$$g^{\mu\nu} = x_0^2    \eta^{\mu\nu}$$
+
+$$(\eta_{\mu\nu}) = (\eta^{\mu\nu}) = \mathrm{diag}(-1,1,\ldots,1)$$
+$$\eta_{\mu\nu} \eta^{\nu\rho} = \delta_\mu^\rho$$
+
+$$\partial_\rho g_{\mu\nu} = -2 x_0^{-3} \delta_{\rho 0} \eta_{\mu\nu}$$
+
+\begin{equation*}
+\begin{split}
+\Gamma_{\mu\nu}^\rho &= \frac12 g^{\rho\sigma} (\partial_\mu g_{\sigma\nu} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu}) \\
+&= \frac12 x_0^2 \eta^{\rho\sigma} ( - 2 x_0^{-3} \delta_{\mu 0} \eta_{\sigma\nu} - 2 x_0^{-3} \delta_{\nu 0} \eta_{\mu\sigma} + 2 x_0^{-3} \delta_{\rho 0} \eta_{\mu\nu}) \\
+&= - x_0^{-1} (\delta_{\mu 0} \delta_\nu^\rho + \delta_{\nu 0} \delta_\mu^\rho - \delta_0^\rho \eta_{\mu\nu})
+\end{split}
+\end{equation*}

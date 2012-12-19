@@ -1,0 +1,124 @@
+\subsection{Symmetry (or Isometry)}
+
+In this section we will study the symmetries of $\AdS_{d+1}$ and how the standard coordinates/parametrisation behave under these symmetries.
+
+With a symmetry of $\AdS$ we mean a coordinate transformation that leaves $\AdS$ unchanged.
+
+From the definition of (normalized) $\AdS_{d+1}$, eq.~(\ref{eq:adsdef})
+$$\vec{X}^2-T_1^2-T_2^2=-1,$$
+it is obvious that $\AdS_{d+1}$ is invariant under $SO(d,2)$ (or $SO(d+1,1)$ for euclidean $\AdS_{d+1}$). This is however only one part of the full group preserving $\AdS_{d+1}$, since $SO(d,2)$ excludes reflections.
+
+\subsubsection{Discrete symmetries --- Reflections}
+A general reflection in $\mathbb{R}(d,2)$ can be constructed from some special reflection (in special planes) via rotations, so we only have to study some special reflections.
+
+As ``special reflections'' we choose
+\begin{enumerate}
+\item $X_1 \rightarrow -X_1$, leaving $T_1$, $Y$ unchanged
+\item $(X_1, T_1) \rightarrow (-X_1, -T_1)$, leaving $Y$ unchanged
+\item A general reflection of $Y$, leaving $(X_1, T_1)$ unchanged
+\end{enumerate}
+
+Under the reflection $X_1 \rightarrow -X_1$, we have
+\begin{align}
+x_0 &= \frac{1}{X_+} = \frac{1}{X_1+T_1} \rightarrow \frac{1}{-X_1+T_1} = -\frac{1}{X_-} \nonumber \\
+&= \frac{X_+}{1+Y^2} = \frac{1/x_0}{1+\vec{x}^2/x_0^2} = \frac{x_0}{x_0^2+\vec{x}^2} = \frac{x_0}{x^2}\\
+\vec{x} &= \frac{Y}{X_+} \rightarrow \frac{Y}{-X_-} = \frac{X_+}{1+Y^2} Y = \frac{x_0}{x^2} \frac{\vec{x}}{x_0} = \frac{\vec{x}}{x^2}
+\end{align}
+This can be summarized as
+$$x \rightarrow \frac{x}{x^2},$$
+i.e.\ an \emph{inversion} of $x$.
+
+Under the reflection $(X_1, T_1) \rightarrow (-X_1, -T_1)$,
+\begin{align}
+x_0 &= \frac{1}{X_1+T_1} \rightarrow \frac{1}{-X_1-T_1} = -x_0\\
+\vec{x} &= x_0 Y \rightarrow -x_0 Y = -\vec{x},
+\end{align}
+which can be summarized as
+$$x \rightarrow -x.$$
+
+It is trivial to see that a reflection of $Y$ just corresponds to a reflection of $\vec{x}$ leaving $x_0$ invariant.
+
+\subsubsection{Continuous symmetries --- Rotations}
+Continuous symmetries (like rotations) are often described by their infinitesimal effects, i.e.\ how they act for small changes:
+
+If $R(\epsilon,x)$ is some continuous transformation of $x$, such that $R(0,x)=x$, then for infinitesimal $\epsilon$,
+$$x \rightarrow R(\epsilon,x) = R(0,x) + \epsilon \frac{\partial R}{\partial\epsilon}(0,x) = x + \delta x,$$
+where
+$$\delta x = \epsilon \frac{\partial R}{\partial\epsilon}(0,x).$$
+
+It is also common to consider how the transformation acts on a function:\\
+For infinitesimal $\delta x$,
+$$\phi(x) \rightarrow \phi(x+\delta x) = \phi(x) + \delta x \cdot \partial\phi(x) = \phi(x) + \delta\phi(x),$$
+where
+$$\delta\phi(x) = \delta x \cdot \partial\phi(x) = \epsilon \frac{\partial R}{\partial\epsilon}(0,x) \cdot \partial\phi(x).$$
+
+For rotations in $\mathbb{R}(d,2)$ one has
+$$\delta X^M = \epsilon J^M{}_N X^N,$$
+where $J^M{}_N$ are constants satisfying
+$$J_{MN} = -J_{NM}.$$
+From this we deduce that $J^M{}_N$ can be written as
+$$J^M{}_N = a^{PQ} (\delta^M_P\: \eta_{QN} - \delta^M_Q\: \eta_{PN})
+% = a^{PQ} (M_{PQ})^M{}_N
+$$
+for some constants $a^{PQ}$ (of which only the anti-symmetric part $a^{[PQ]}$ is interesting).
+This gives
+$$\delta X^M = \epsilon a^{PQ} (\delta^M_P\: \eta_{QN} - \delta^M_Q\: \eta_{PN}) X^N.$$
+We will use this equation to find $\delta X^+$ and $\delta\hat{X}$, for different choices of $a^{PQ}$, then use them to find $\delta x_0$ and $\delta \vec{x}$:
+
+\todo{Have changed $X_\pm$ to $X^\pm$ and $Y$ to $\hat X$.}\\
+\todo{Change in rest of document too!}
+\todo{Change $x_0$ to $x^0$ too?}
+
+\begin{align*}
+x_0 &= \frac{1}{X^+} &&\Rightarrow& \delta x_0 &= -\frac{\delta X^+}{(X^+)^2} = -{x_0}^2\: \delta X^+ \\
+\vec{x} &= x_0 \hat{X} &&\Rightarrow& \delta\vec{x} &= \delta x_0\: \hat{X} + x_0\: \delta\hat{X}
+\end{align*}
+
+$$X^- = -\frac{1+\hat{X}^2}{X^+} = -\frac{1+\vec{x}^2/{x_0}^2}{1/x_0} = -\frac{{x_0}^2 + \vec{x}^2}{x_0} = -\frac{x^2}{x_0}$$
+
+\begin{itemize}
+\item[$M_{+-}$:]
+	\begin{align*}
+	\delta X^+ &= \epsilon(\delta^+_+\:\eta_{-N} - \delta^+_-\:\eta_{+N}) X^N = \epsilon \eta_{-+} X^+ = \epsilon \frac12 X^+ \\
+	\delta X^k &= \epsilon(\delta^k_+\:\eta_{-N} - \delta^k_-\:\eta_{+N}) X^N = 0 \\
+	\delta x_0 &= -{x_0}^2 \epsilon \frac12 \frac{1}{x_0} = -\frac12 \epsilon x_0 \\
+	\delta x^k &= -\frac12 \epsilon x_0 \frac{x^k}{x_0} = -\frac12 \epsilon x^k \\
+	\delta x &= -\frac12 \epsilon x
+	\end{align*}
+\item[$M_{+i}$:]
+	\begin{align*}
+	\delta X^+ &= \epsilon(\delta^+_+\:\eta_{iN} - \delta^+_i\:\eta_{+N}) X^N = \epsilon \eta_{ij} X^j\\
+	\delta X^k &= \epsilon(\delta^k_+\:\eta_{iN} - \delta^k_i\:\eta_{+N}) X^N = -\epsilon \delta^k_i\:\frac12 X^- = -\epsilon \frac12 \delta^k_i X^-\\
+	\delta x_0 &= -\epsilon \eta_{ij} x_0 x^j \\
+	\delta x^k &= \frac12 \epsilon \left(\delta^k_i x^2 - 2\eta_{ij} x^j x^k \right)
+	\end{align*}
+$$\vec{a}\cdot\vec{M_+} = a^i M_{+i}:$$
+\begin{align*}
+	\delta x_0 &= -\epsilon (\vec{a}\cdot\vec{x})x_0 \\
+	\delta\vec{x} &= \frac12\epsilon \left(x^2 \vec{a} - 2(\vec{a}\cdot\vec{x})\vec{x} \right)
+\end{align*}
+
+\item[$M_{-i}$:]
+	\begin{align*}
+	\delta X^+ &= \epsilon(\delta^+_-\:\eta_{iN} - \delta^+_i\:\eta_{-N}) X^N = 0 \\
+	\delta X^k &= \epsilon(\delta^k_-\:\eta_{iN} - \delta^k_i\:\eta_{-N}) X^N = -\epsilon \delta^k_i \frac12 X^+ \\
+	\delta x_0 &= 0 \\
+	\delta x^k &= -\frac12 \epsilon \delta^k_i
+	\end{align*}
+$$\vec{a}\cdot\vec{M_-} = a^i M_{-i}:$$
+\begin{align*}
+	\delta x_0 &= 0 \\
+	\delta \vec{x} &= \frac12\epsilon \vec{a}
+\end{align*}
+
+\item[$M_{ij}$:]
+	\begin{align*}
+	\delta X^+ &= \epsilon(\delta^+_i\:\eta_{jN} - \delta^+_j\:\eta_{iN}) X^N = 0 \\
+	\delta X^k &= \epsilon(\delta^k_i\:\eta_{jN} - \delta^k_j\:\eta_{iN}) X^N = \epsilon(\delta^k_i\:\eta_{jl} - \delta^k_j\:\eta_{il}) X^l \\
+	\delta x_0 &= 0 \\
+	\delta x^k &= \epsilon(\delta^k_i\:\eta_{jl} - \delta^k_j\:\eta_{il}) x^l
+	\end{align*}
+\end{itemize}
+
+
+%\todo{Obs! Euklidiserat: symmetrigrupp=SO(d-1,1)}

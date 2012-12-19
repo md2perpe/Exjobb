@@ -1,0 +1,160 @@
+\subsection{Scalar Green function by Fourier analysis}
+%\newcommand{\sqrtg}{\sqrt{|g|}}
+
+\subsubsection{Rewriting the equation}
+We are going to solve
+$$\Box_m^{(x)}G(x,y)=\delta_{\mathrm{AdS}}(x,y),$$
+i.e.
+$$\frac{1}{\sqrtg}\partial_{\mu}\left(\sqrtg g^{\mu\nu}\partial_{\nu}G(x,y)\right)-m^2 G(x,y)=\frac{1}{\sqrtg}\delta(x-y),$$
+where the partial derivatives are taken with respect to $x$.
+After multiplication by $\sqrtg$ this becomes
+$$\partial_{\mu}\left(\sqrtg g^{\mu\nu}\partial_{\nu}G(x,y)\right)-m^2 \sqrtg G(x,y) = \delta(x-y).$$
+Inserting $g_{\mu\nu}=x_0^{-2}\delta_{\mu\nu}$, $\sqrtg=x_0^{-(d+1)}$ and $g^{\mu\nu}=x_0^2\delta^{\mu\nu}$ gives
+$$\partial_{\mu}\left(x_0^{-(d+1)}x_0^2\delta^{\mu\nu}\partial_{\nu}G(x,y)\right)-m^2 x_0^{-(d+1)}G(x,y)=\delta(x-y),$$
+which after working out the derivative in the first term becomes
+$$x_0^{1-d}\delta^{\mu\nu}\partial_{\mu}\partial_{\nu}G(x,y)+(1-d)x_0^{-d}\delta_{\mu 0}\delta^{\mu\nu}\partial_{\nu}G(x,y)-m^2 x_0^{-(d+1)}G(x,y)=\delta(x-y).$$
+This equation we rewrite by separating $x_0$ parts from $\vec x$ parts:
+$$x_0^{1-d}\delta^{ij}\partial_i\partial_j G(x,y)+x_0^{1-d}\partial_0^2 G(x,y)+(1-d)x_0^{-d}\partial_0 G(x,y)-m^2 x_0^{-(d+1)}G(x,y)=\delta(x_0-y_0)\delta(\vec x-\vec y),$$
+where the indices $i$ and $j$ range over $1,\dots,d$.
+
+\subsubsection{Fourier transform}
+Now, we Fourier transform this equation in $\vec{x}$ by
+\begin{align}
+\hat{G}=\hat{G}(x_0,\vec{\xi};y)=\int G(x_0,\vec{x};y) e^{-i\vec{\xi}\cdot\vec{x}} \ud^d x \label{eq:fourier}\\
+\intertext{with inverse}
+G(x_0,\vec{x};y)=\frac{1}{(2\pi)^d}\int \hat{G}(x_0,\vec{\xi};y) e^{i\vec{\xi}\cdot\vec{x}} \ud^d \xi \label{eq:ifourier}
+\end{align}
+getting
+$$x_0^{1-d}(-\xi^2)\hat{G}+x_0^{1-d}\partial_0^2 \hat{G}+(1-d)x_0^{-d}\partial_0 \hat{G}-m^2 x_0^{-(d+1)} \hat{G} = \delta(x_0-y_0) e^{-i\vec{\xi}\cdot\vec{y}},$$
+which we rewrite as
+\begin{equation}\label{eq:ghatode}
+x_0^{1-d}\partial_0^2 \hat{G} + (1-d)x_0^{-d}\partial_0\hat{G}-(\xi^2 x_0^{1-d} + m^2 x_0^{-(d+1)})\hat{G}=e^{-i\vec{\xi}\cdot\vec{y}}\delta(x_0-y_0).
+\end{equation}
+Here of course $\xi=|\vec{\xi}|$.
+
+Thus, we get an ordinary second order differential equation in $x_0$, that we can quite easily solve.
+
+\subsubsection{Solution of transformed equation}
+Since eq.~(\ref{eq:ghatode}) is a regular Sturm-Liouville problem, the solution of
+$$
+x_0^{1-d}\partial_0^2 \hat{G} + (1-d)x_0^{-d}\partial_0\hat{G}-(\xi^2 x_0^{1-d} + m^2 x_0^{-(d+1)})\hat{G}=\delta(x_0-y_0)
+$$
+is given by
+$$\hat{G}(x_0,\vec\xi;y_0,\vec y)=C \hat{G}^{-}(x_{-}) \hat{G}^{+}(x_{+}),$$
+where $C$ is a constant, $x_{-}=\min(x_0,y_0x_0,y_0)$, $x_{+}=\max(x_0,y_0)$ and
+$\hat{G}^{-}$ and $\hat{G}^{+}$ are two solutions of the homogeneous equation
+\begin{equation}\label{eq:ghathom}
+x_0^{1-d}\partial_0^2 \hat{G}^\pm + (1-d)x_0^{-d}\partial_0\hat{G}^\pm-(\xi^2 x_0^{1-d} + m^2 x_0^{-(d+1)})\hat{G}^\pm=0
+\end{equation}
+with nice boundary behaviors for $x_0=0$ resp.\ $x_0\to\infty$.
+
+The solutions of eq.~(\ref{eq:ghathom}) are given by linear combinations
+$$\hat{G}^\pm=x_0^{d/2}\left(c_1 I_\nu(\xi x_0)+c_2 K_\nu(\xi x_0)\right),$$
+where $I_\nu$, $K_\nu$ are modified Bessel functions with $\nu=\sqrt{(d/2)^2+m^2}$.
+
+Now, $I_\nu$ is finite at $0$ (even $=0$ for $\nu\neq0$), but tends to infinity as $x_0\to\infty$, and vice versa for $K_\nu$. We therefore take
+\begin{align*}
+G^{-}(x_0,\vec\xi;y_0,\vec y)&=x_0^{d/2} I_\nu(\xi x_0) \\
+%\intertext{and}
+G^{+}(x_0,\vec\xi;y_0,\vec y)&=x_0^{d/2} K_\nu(\xi x_0).
+\end{align*}
+
+The solution of eq.~(\ref{eq:ghatode}) is thus given by
+\begin{align*}
+\hat{G}(x_0,\vec\xi; y_0,\vec y) &= e^{-i\vec{\xi}\cdot\vec{y}}\,\cdot C x_{+}^{d/2} I_\nu(\xi x_{-})\, x_{-}^{d/2} K_\nu(\xi x_{+})\\
+&= C e^{-i\vec{\xi}\cdot\vec{y}} (x_0 y_0)^{d/2} I_\nu(\xi x_{-}) K_\nu(\xi x_{+})
+\end{align*}
+where the constant $C$ will be determined later.
+
+Now, we ``only'' have to take the inverse Fourier transform to get $G$.
+
+\subsubsection{Inverse Fourier transform}
+From eq.~(\ref{eq:ifourier}) we get
+\begin{align*}
+G(x_0,\vec x; y_0,\vec y) &= \frac{1}{(2\pi)^3} \int C e^{-i\vec{\xi}\cdot\vec{y}} (x_0 y_0)^{d/2} I_\nu(\xi x_{-}) K_\nu(\xi x_{+}) \cdot e^{i\vec{\xi}\cdot\vec{x}} \ud^d\xi \\
+&= \frac{1}{(2\pi)^3} C (x_0 y_0)^{d/2} \int I_\nu(\xi x_{-}) K_\nu(\xi x_{+}) e^{i\vec{\xi}\cdot(\vec x-\vec y)} \ud^d\xi.
+\end{align*}
+
+For the integral
+$$\int I_\nu(\xi x_{-}) K_\nu(\xi x_{+}) e^{i\vec{\xi}\cdot(\vec x-\vec y)} \ud^d\xi,$$
+where we have set $\vec z=\vec x-\vec y$, we introduce polar coordinates in $\vec\xi$-space:
+
+Since the integrand depends on $\xi$ and the angle between $\vec\xi$ and $\vec x-\vec y$ (to be denoted by $\theta$), we split the integral into three integrals --- one over $\xi$, one over $\theta$ and one over the remaining space $S^{d-2}$:
+\begin{multline} %$$
+\int_{\mathbb{R}^d} I_\nu(\xi x_{-}) K_\nu(\xi x_{+}) e^{i\vec{\xi}\cdot(\vec x-\vec y)} \ud^d\xi= \\
+\int_0^\infty\!\! \int_0^\pi\!\! \int_{S^{d-2}} I_\nu(\xi x_{-}) K_\nu(\xi x_{+}) e^{i\xi|\vec x-\vec y|} \ud^{d-2}S\,  (\sin\theta)^{d-2}\cos\theta\,\ud\theta\, \xi^{d-1}\ud\xi
+\end{multline} %$$
+
+The integral over $S^{d-2}$ is trivial; it just gives us the ``hypervolume'' (or ``hyperarea'') of $S^{d-2}$. This of course is a constant, independent of $\vec x-\vec y$ and $x_\pm$, so we simply ``bake it in'' into $C$.
+
+Next, we perform the $\theta$ integral,
+$$\int_0^\pi e^{i \xi |\vec x-\vec y| \cos\theta} (\sin\theta)^{d-2}\ud\theta.$$
+This actually reduces to
+\begin{equation}\label{eq:thetaint}
+\int_0^\pi \cos(\xi |\vec x-\vec y| \cos\theta)\, (\sin\theta)^{d-2}\ud\theta
+\end{equation}
+since $\sin(\xi |\vec x-\vec y| \cos\theta)$ has only odd powers of $\cos\theta$ in its series expansion, and so will integrate to $0$ when multiplied with $\sin^{d-2}\theta$.
+
+The integral eq.~(\ref{eq:thetaint}) can be looked up in integral tables and gives
+$$\sqrt\pi \left(\frac{2}{\xi|\vec x-\vec y|}\right)^{\frac{d-2}{2}}\, \Gamma\left(\frac{d-2}{2}\right)\, J_{\frac{d-2}{2}}(\xi|\vec x-\vec y|).$$
+Again, the constants are ``baked in'' into $C$, leaving
+$$(\xi |\vec x-\vec y|)^{-\frac{d-2}{2}}\, J_{\frac{d-2}{2}}(\xi |\vec x-\vec y|).$$
+
+The integral left then is
+%$$|\vec x-\vec y|^{-\frac{d-2}{2}}\, \int_0^\infty I_\nu(\xi x_{-}) K_\nu(\xi x_{+})\, J_{\frac{d-2}{2}}(\xi |\vec x-\vec y|)\,  \xi^{-\frac{d-2}{2}+(d-1)}\, \ud\xi$$
+%i.e.
+$$|\vec x-\vec y|^{1-d/2}\, \int_0^\infty I_\nu(\xi x_{-}) K_\nu(\xi x_{+})\, J_{d/2-1}(\xi |\vec x-\vec y|)\,  \xi^{d/2}\, \ud\xi.$$
+Once again, the integral can be looked up in integral tables, giving
+\begin{multline}
+|\vec x-\vec y|^{1-d/2}\, \frac{(x_{+}x_{-})^{-d/2}\, |\vec x-\vec y|^{d/2-1} e^{-i\pi(d/2-1/2)} Q_{\nu-1/2}^{d/2-1/2}(v)}{\sqrt{2\pi}(v^2-1)^{(d-1)/4}} \\
+%\frac{e^{-i\pi(d/2-1/2)}}{\sqrt{2\pi}} = \\
+= \text{constant} \times (x_0 y_0)^{-d/2} \frac{Q_{\nu-1/2}^{d/2-1/2}(v)}{(v^2-1)^{(d-1)/4}},
+\end{multline}
+where
+$$v = \frac{x_{+}^2+x_{-}^2+|\vec x-\vec y|^2}{2x_{+}x_{-}} =
+\frac{(x_0-y_0)^2+|\vec x-\vec y|^2}{2 x_0 y_0}+1 = u+1.$$
+
+The Green function is thus given by
+$$G(x_0,\vec x; y_0, \vec y) = C (v^2-1)^{-(d-1)/4} Q_{\nu-1/2}^{d/2-1/2}(v).$$
+This, however, is usually written using the hypergeometric function ${}_2F_1$:
+\begin{equation*}\label{eq:scalargreenC}
+\begin{split}
+G(x,y)&=C v^{-\Delta} {}_2F_1\left(\frac{\Delta}{2}, \frac{\Delta+1}{2}; \nu+1; \frac{1}{v^2}\right)\\
+&=C (u+1)^{-\Delta} {}_2F_1\left(\frac{\Delta}{2}, \frac{\Delta+1}{2}; \nu+1; \frac{1}{(u+1)^2}\right),
+\end{split}
+\end{equation*}
+where $\Delta=\nu+d/2$ (and all constants have been ``baked in'' into $C$).
+
+Now, we shall just determine $C$, and we'll be ready\dots
+
+\subsubsection{Determining the constant}
+In a small region ($u$ is small) the Green function should behave approximately as the flat space version does. The Green function in $\mathbb{R}^{d+1}$ is
+$$G_{\mathrm{flat}}(x,y) = \frac{\Gamma(\frac{d+1}2)}{2(1-d)\pi^{(d+1)/2}} \frac{1}{r^{d-1}},$$
+where $r$ is the distance between the points $x$ and $y$.\\
+(We don't write $|x-y|$ since this may be misinterpreted as $\sqrt{(x_0-y_0)^2+(\vec x-\vec y)^2}$, while $r=\sqrt{(x_0-y_0)^2+(\vec x-\vec y)^2}/\sqrt{x_0 y_0}=\sqrt{2u}$.)
+
+So, how does eq.~(\ref{eq:scalargreenC}) behave for small $u$? To start with,
+$$\frac{1}{(u+1)^2} \approx 1-2u.$$
+Then we use a hypergeometric transformation formula, saving only the dominant part:
+\begin{equation*}
+\begin{split}
+G(x,y) &\approx C (2u)^{-(d-1)/2} \frac{\Gamma(\nu+1)\Gamma((d-1)/2)}{\Gamma(\Delta/2)\Gamma((\Delta+1)/2)} {}_2F_1(\nu+1-\Delta/2, \nu+1/2-\Delta/2; (3-d)/2; 2u) \\
+&\approx C (2u)^{-(d-1)/2} \frac{\Gamma(\nu+1)\Gamma((d-1)/2)}{\Gamma(\Delta/2)\Gamma((\Delta+1)/2)}
+\end{split}
+\end{equation*}
+since ${}_2F_1(a,b;c;0)=1$.
+This has the correct $r$ dependence, because
+$$(2u)^{-\frac{d-1}{2}}=r^{-(d-1)}.$$
+
+Thus, we should have
+$$C \frac{\Gamma(\nu+1)\Gamma(\frac{d-1}{2})}{\Gamma(\frac \Delta 2)\Gamma(\frac{\Delta+1}{2})} = \frac{\Gamma(\frac{d+1}2)}{2(1-d)\pi^{(d+1)/2}}$$
+i.e.
+$$C = \frac{\Gamma(\frac \Delta 2)\Gamma(\frac{\Delta+1}{2})}{\Gamma(\nu+1)\Gamma(\frac{d-1}{2})} \frac{\Gamma(\frac{d+1}2)}{2(1-d)\pi^{(d+1)/2}}.$$
+This we simplify by using a couple of gamma function identities, and so end up with
+$$C = - \frac{2^{-(\Delta+1)} \Gamma(\Delta)}{\pi^{d/2} \Gamma(\nu+1)}.$$
+
+Putting it all together, our final expression for $G$ becomes
+\begin{equation}\label{eq:scalargreen}
+G(x,y) = - \frac{2^{-(\Delta+1)} \Gamma(\Delta)}{\pi^{d/2} \Gamma(\nu+1)}
+\frac{1}{(u+1)^\Delta} {}_2F_1\left(\frac{\Delta}{2}, \frac{\Delta+1}{2}; \nu+1; \frac{1}{(u+1)^2}\right).
+\end{equation}

@@ -1,0 +1,40 @@
+%\appendix
+\chapter{Special Functions}
+In this paper some special functions are used. This appendix serves to give an introduction to these functions and their properties.
+
+\section{Gamma Function}
+\subsection{Definition}
+$$\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \ud t$$
+\subsection{Properties}
+$$\Gamma(1) = 1$$
+$$\Gamma(z+1) = z \Gamma(z)$$
+$$\Gamma(n+1) = n!$$
+
+$$\Gamma\left(\frac12\right) = \int_0^\infty t^{-1/2} e^{-t} \ud t = \mbox{$[t = s^2 ]$} 
+= \int_0^\infty e^{-s^2} \ud s = \frac12 \sqrt{\pi}$$
+
+$$\int_0^\infty t^{z-1} e^{-st} \ud t = \mbox{$[u=st]$} = s^{-z} \int_0^\infty u^{z-1} e^{-u} \ud u = s^{-z} \Gamma(z)$$
+$$s^z = \Gamma(-z)^{-1} \int_0^\infty t^{-z-1} e^{-st} \ud t$$
+
+\begin{align*}
+\int_0^\infty t^\alpha (at+b)^\beta \ud t
+&= \Gamma(-\beta)^{-1} \int_0^\infty t^\alpha \int_0^\infty u^{-\beta-1} e^{-(at+b)u} \ud u\, \ud t \\
+&= \Gamma(-\beta)^{-1} \int_0^\infty u^{-\beta-1} e^{-bu} \int_0^\infty t^\alpha e^{-atu} \ud t\, \ud u \\
+&= \Gamma(-\beta)^{-1} \Gamma(\alpha+1) \int_0^\infty u^{-\beta-1} e^{-bu} (au)^{-(\alpha+1)} \ud u \\
+&= \Gamma(-\beta)^{-1} \Gamma(\alpha+1) a^{-(\alpha+1)} \int_0^\infty e^{-bu} u^{-\alpha-\beta-2} \ud u \\
+&= \Gamma(-\beta)^{-1} \Gamma(\alpha+1) a^{-(\alpha+1)} b^{\alpha+\beta+1} \Gamma(-\alpha-\beta-1)
+\end{align*}
+
+\section{Hypergeometric Functions}
+$${}_2F_1 (a,b;c;z) = \sum_{n=0}^\infty \frac{(a)_n (b)_n}{(c)_n} \frac{z^n}{n!}$$
+$$(a)_n = \begin{cases}
+1,                     & \text{for $n=0$} \\
+a(a+1) \cdots (a+n-1), & \text{for $n=1,2,3,\ldots$}
+\end{cases}$$
+
+
+\section{Bessel Functions (esp.\ Modified BFs)}
+
+\section{``$Q_m^n$''}
+\todo{Finn rätt namn på funktionen}
+

@@ -1,0 +1,52 @@
+\subsection{Chordal Distance}
+\newcommand{\half}{\frac{1}{2}}
+\todo{Write about analogy w/ ``invariant distance'' in flat space}
+\todo{Insert describing text between equations \& change variable names!!!}
+
+The \emph{chordal distance} between two points $X=(\vec{X},T_1,T_2)$ and $X'=(\vec{X}',T_1',T_2')$ in AdS is defined by
+$$u=\frac{(X-X')^2}{2}$$
+where
+$$(X-X')^2=(\vec{X}-\vec{X'})^2-(T_1-T_1')^2-(T_2-T_2')^2\equiv\Delta{\vec{X}}^2-\Delta{T_1}^2-\Delta{T_2}^2$$
+%$$\Delta{X}=X-X'=(\vec{X}-\vec{X'},T_1-T'_1,T_2-T'_2)\equiv(\Delta{\vec{X}},\Delta{T_1},\Delta{T_2})$$
+%$$u = \frac{(X-X')^2}{2} = \frac{(\vec{X}-\vec{X}')^2-(T_1-T_1')^2-(T_2-T_2')^2}{2} = \frac{\Delta{\vec{X}}^2-\Delta{T_1}^2-\Delta{T_2}^2}{2}.$$
+We are interested in the analytic form of $u$ in the standard parametrisation. Thus, given $x=(x_0,\vec{x})$ and $x'=(x_0',\vec{x}')$, we shall find the expression for $u$ in terms of $x$ and $y$.
+
+Using the variables $X_{+}=X_1-T_1$ and $X_{-}=X_1-T_1$ (as in the derivation of the standard parametrisation), and setting $\vec{Y}=(X_2,\dots,X_d,T_2)\in\mathbb{R}(d-1,1)$, the squared distance $\Delta{s}^2$ between $X$ and $X'$ becomes
+$$\Delta{s}^2 = \Delta{X_1}^2 - \Delta{T_1}^2 + \Delta{\vec{x}}^2 = \Delta{X_{+}} \Delta{X_{-}} + \Delta{\vec{Y}}^2$$
+where
+%\begin{eqnarray}
+%\Delta{X_{+}}=X_{+}-X'_{+}=\Delta{X_1}+\Delta{T_1}\\
+%\Delta{X_{-}}=X_{-}-X'_{-}=\Delta{X_1}-\Delta{T_1}
+%\end{eqnarray}
+
+\begin{align}
+\Delta{X_{+}} &= X_{+}-X'_{+} = \frac{1}{x_{0}} - \frac{1}{x_{0}'} = \frac{x_{0}' - x_{0}}{x_{0}x_{0}'}\\
+\Delta{X_{-}} &= X_{-}-X'_{-} = \left(-x_{0}-\frac{\vec{x}^2}{x_{0}}\right) - \left(-x_{0}'-\frac{(\vec{x}')^2}{x_{0}'}\right)\nonumber\\
+&= (x_{0}'-x_{0})-\frac{x_{0}' \vec{x}^2 - x_{0} (\vec{x}')^2}{x_{0}x_{0}'}\\
+\Delta{\vec{Y}}\phantom{_-} &= \vec{Y}-\vec{Y'}=\frac{\vec{x}}{x_{0}} - \frac{\vec{x}'}{x_{0}'} = \frac{x_{0}' \vec{x} - x_{0} \vec{x}'}{x_{0}x_{0}'}
+\end{align}
+
+Inserting this into (???) gives
+\begin{equation}\begin{split}
+\Delta{s}^2 &= \frac{x_{0}' - x_{0}}{x_{0}x_{0}'}\left((x_{0}'-x_{0})-\frac{x_{0}' \vec{x}^2 - x_{0} (\vec{x}')^2}{x_{0}x_{0}'}\right) + \left(\frac{x_{0}' \vec{x} - x_{0} \vec{x}'}{x_{0}x_{0}'}\right)^2\\
+&=\frac{(x_{0}' - x_{0})^2}{x_{0}x_{0}'}-\frac{(x_{0}'-x_{0})(x_{0}' \vec{x}^2 - x_{0} (\vec{x}')^2)+(x_{0}' \vec{x} - x_{0} \vec{x}')}{(x_{0}x_{0}')^2}
+%\left((x_{0}'-x_{0})-\frac{x_{0}' \vec{x}^2 - x_{0} (\vec{x}')^2}{x_{0}x_{0}'}\right) + \left(\frac{x_{0}' \vec{x} - x_{0} \vec{x}'}{x_{0}x_{0}'}\right)^2
+\end{split}\end{equation}
+
+Now, the numerator in the second term simplifies to $-(\vec{x}-\vec{x}')^2$:
+
+\begin{equation}\begin{split}
+(x_{0}' &- x_{0})(x_{0}' \vec{x}^2 - x_{0} (\vec{x}')^2) - (x_{0}' \vec{x} - x_{0} \vec{x}')^2\\
+&= ((x_{0}')^2 \vec{x}^2 - x_{0}x_{0}' (\vec{x}')^2  - x_{0}x_{0}' \vec{x}^2 + x_{0}^2 (\vec{x}')^2) \\
+& \qquad - ((x_{0}')^2 \vec{x}^2 - 2 x_{0}x_{0}' \vec{x}\cdot\vec{x}' + x_{0}^2 (\vec{x}')^2)\\
+&= -((\vec{x}')^2 - 2 \vec{x}\cdot\vec{x}' + \vec{x}^2)x_{0}x_{0}' \\
+&= -(\vec{x}' - \vec{x})^2 x_{0}x_{0}'
+\end{split}\end{equation}
+
+Finally we then get
+$$\Delta{s}^2 = \frac{(x_{0}' - x_{0})^2}{x_{0}x_{0}'} + \frac{(\vec{x}' - \vec{x})^2 x_{0}x_{0}'}{(x_{0}x_{0}')^2} = \frac{(x_{0}' - x_{0})^2 + (\vec{x}' - \vec{x})^2}{x_{0}x_{0}'}$$
+
+Thus, the chordal distance between two points $x=(x_0,\vec{x})$ and $y=(y_0,\vec{y})$ (given in standard coordinates) in AdS$_{d+1}$ is
+$$u = u(x,y) = \frac{(x_0 - y_0)^2 + (\vec{x} - \vec{y})^2}{2 x_0 y_0}.$$
+
+\todo{Insert?: We see that for close points this coincides with the expression $\ud s^2 = \frac{(\ud x_0 - \ud y_0)^2 + (\ud\vec{x} - \ud\vec{y})^2}{x_0 y_0}$ except for the factor 2, which we introduced \it{ad hoc(?)}}

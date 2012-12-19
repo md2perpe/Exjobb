@@ -1,0 +1,79 @@
+\subsection{Parametrisation \& Coordinates}
+\todo{Can really have this text... :-)}
+There are several ways to parametrise AdS~spaces. Some are intuitive, but difficult to work with. Others are non-intuitive, but easy to work with.
+
+\subsubsection{Polar coordinates}
+Let's set $r = |\vec{X}|$ and $\vec{n} = \vec{X}/r$. Then $\vec{n} \in S^{d-1}$, so $\vec{n}^2 = 1$ and $\vec{n} \cdot \ud\vec{n} = 0$. From this we deduce that
+$$\ud \vec{X}^2 = (\ud r\:\vec{n} + r\:\ud\vec{n})^2 = \ud r^2 + r^2\:\ud\vec{n}^2.$$
+
+The time coordinates then satisfy $T_1^2 + T_2^2 = \vec{X}^2 + R^2 = r^2 + R^2$, i.e. they describe a circle, and are most naturally parametrised by
+\begin{align*}
+T_1 = \sqrt{r^2+R^2}\cos{t}\\
+T_2 = \sqrt{r^2+R^2}\sin{t}
+\end{align*}
+for $-\infty<t<+\infty$ (remember that we are considering the covering space).
+\\
+
+The infinitesimals of $T_1$ and $T_2$ becomes
+\begin{align*}
+\ud T_1 &= \frac{r\:\ud r}{\sqrt{r^2+R^2}}\cos{t} - \sqrt{r^2+R^2}\:\ud t\:\sin{t}\\
+\ud T_2 &= \frac{r\:\ud r}{\sqrt{r^2+R^2}}\sin{t} + \sqrt{r^2+R^2}\:\ud t\:\cos{t}
+\end{align*}
+
+Thus,
+$$\ud T_1^2 + \ud T_2^2 = \frac{r^2\:\ud r^2}{r^2+R^2} + (r^2+R^2) \ud t^2$$
+
+Now we can calculate the metric for the AdS space in terms of the polar coordinates:
+
+\begin{equation}\begin{split}
+\ud s^2 &= \ud \vec{X}^2 - \ud T_1^2 - \ud T_2^2 \\
+     &= (\ud r^2 + r^2\:\ud\vec{n}^2) - \left(\frac{r^2\:\ud r^2}{r^2+R^2} + (r^2+R^2) \ud t^2\right)\\
+     &= \left(1 - \frac{r^2}{r^2 + R^2}\right)\:\ud r^2 + r^2\:\ud\vec{n}^2 - (r^2+R^2)\:\ud t^2\\
+     &= \frac{R^2}{r^2+R^2}\:\ud r^2 + r^2\:\ud\vec{n}^2 - (r^2+R^2)\:\ud t^2
+\end{split}\end{equation}
+
+This parametrisation can be varied by setting $r$ to be a function of some parameter $\rho$ to get nice properties of the metric. For example:
+\todo{Formulering}
+\begin{itemize}
+\item
+Setting $r = {2 R \rho}/({1 - \rho^2}), \quad 0 \leq \rho < 1 \quad$ gives
+$$\ud s^2 = R^2\left(\frac{4}{(1-\rho^2)^2}(\ud\rho^2+\rho^2\:\ud\vec{n}^2) - \left(\frac{1+\rho^2}{1-\rho^2}\right)^2\:\ud t^2\right),$$
+where the {\em Poincar\'e metric} for $d-1$ dimensions can be recognised in $\rho$ and $\vec{n}$ (for fixed $t$).
+\item
+Setting $r = R \tan{\rho}, \quad 0 \leq \rho < 1 \quad$ gives
+$$\ud s^2 = \frac{R^2}{\cos^2{\rho}}(\ud\rho^2 + \sin^2{\rho}\:\ud\vec{n}^2 - \ud t^2)$$
+in which a light signal emitted from $r=\rho=0$ propagates like $\rho = t$. 
+\todo{Emphasize this fact! Light travels to the boundary in a finite time!}
+\end{itemize}
+
+
+\subsubsection{Standard parametrisation}
+
+%\todo{Change variable names?}
+This is one of those ``non-intuitive, but easy to work with''-parametrisations, since it's quite like the Euclidean or Minkowskian metrics. (!!!Metrics here, since plural?!!!).
+However, it only covers half of the non-covered AdS space, but that will anyway be enough for us.
+
+\todo{Ha vektorbeteckning på Y? $\vec{Y}$?}
+Start by setting $X_{+} = X_1 + T_1$, \, $X_{-} = X_1 - T_1$ and $Y = (X_2, X_3, \dots, X_d, T_2)$ (signature $(+,\dots,+,-)$). Then (\ref{eq:AdS}) becomes
+$$X_{+}X_{-} + Y^2 = -1$$ 
+from which we can solve for $X_{-}$, getting
+$$X_{-} = -\frac{Y^2 + 1}{X_{+}}.$$
+The differential of $X_{-}$ is
+$$\ud X_{-}=-\frac{2Y\cdot \ud Y}{X_{+}}+\frac{1+Y^2}{X_{+}^2}\ud X_{+}.$$
+Then the metric becomes
+$$\ud s^2=\ud X_{+}\:\ud X_{-} + \ud Y^2 = -2Y\cdot \ud Y\frac{\ud X_{+}}{X_{+}}+(1+Y^2)\frac{\ud X_{+}^2}{X_{+}^2} + \ud Y^2.$$
+Now, setting $Y=X_{+} Z$, we get
+$$\ud Y=\ud X_{+} Z + X_{+} \ud Z$$
+giving
+$$Y\cdot \ud Y = X_{+} \: \ud X_{+} \: Z^2 + X_{+}^2 Z\cdot \ud Z$$
+$$\ud Y^2 = \ud X_{+}^2 Z^2 + 2X_{+} \: \ud X_{+} \: Z\cdot \ud Z + X_{+}^2 \ud Z^2$$
+Inserting this into (!!!the metric!!!) gives (after simplification)
+$$\ud s^2 = \frac{\ud X_{+}^2}{X_{+}^2} + X_{+}^2 \ud Z^2.$$
+Now, we just set $\rho = 1/X_{+}$ and get
+$$\ud s^2 = \frac{\ud\rho^2 + \ud Z^2}{\rho^2}$$
+Here, however, we will rename the variables by $\rho \equiv x_0$ and $Z \equiv \vec{x}$. We also introduce the symbol $x = (x_0, \vec{x})$:
+$$\ud s^2 = \frac{{\ud x_0}^2 + {\ud\vec{x}}^2}{{x_0}^2} = \frac{\ud x^2}{x_0^2}.$$
+
+\todo{Lägga in $x \cdot y \equiv x_0 y_0 + \vec x \cdot \vec y$ ???}
+
+We will continue to use the variables $(X_+, X_-, Y)$ when we need a linkage between $(\vec{X}, T_1, T_2)$ and $(x_0, \vec{x})$.

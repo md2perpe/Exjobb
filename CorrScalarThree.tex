@@ -1,0 +1,203 @@
+%\section{Three Point Scalar Correlation Function}
+\todo{A small introduction of what the Three Point Function is; $\phi^3$-theory}
+
+The three point scalar correlation function $K(\vec{x}_1,\vec{x}_2,\vec{x}_3)$ is calculated as
+\begin{equation}\label{eq:K3def}
+K(\vec{x}_1,\vec{x}_2,\vec{x}_3) = \int_{\AdS_{d+1}} K(\vec{x}_1,z) K(\vec{x}_2,z) K(\vec{x}_3,z) \ud V(z),
+\end{equation}
+where $K(\vec{x},z)$ is the bulk-to-boundary correlation function
+\begin{equation}\label{eq:Kbb}
+K(\vec{x},z) = C \left( \frac{z_0}{z_0^2 + |\vec{z}-\vec{x}|^2} \right)^\Delta.\end{equation}
+
+Inserting (\ref{eq:Kbb}) into (\ref{eq:K3def}) gives
+\begin{equation*}
+\begin{split}
+K(\vec{x}_1,\vec{x}_2,\vec{x}_3) &= 
+C^3 \int_0^\infty \frac{\ud z_0}{z_0^{d+1}} \int_{\mathbb{R}^d} \ud^d z 
+  \left( \frac{z_0}{z_0^2 + |\vec{z}-\vec{x}_1|^2} \right)^\Delta
+  \left( \frac{z_0}{z_0^2 + |\vec{z}-\vec{x}_2|^2} \right)^\Delta
+  \left( \frac{z_0}{z_0^2 + |\vec{z}-\vec{x}_3|^2} \right)^\Delta \\
+&=
+C^3 \int_0^\infty z_0^{3\Delta-(d+1)} \ud z_0 \int_{\mathbb{R}^d} \ud^d z 
+  ( z_0^2 + |\vec{z}-\vec{x}_1|^2 )^{-\Delta}
+  ( z_0^2 + |\vec{z}-\vec{x}_2|^2 )^{-\Delta}
+  ( z_0^2 + |\vec{z}-\vec{x}_3|^2 )^{-\Delta}
+.
+\end{split}
+\end{equation*}
+
+Now we use a trick of rewriting ($j=1,2,3$)
+$$( z_0^2 + |\vec{z}-\vec{x}_j|^2 )^{-\Delta} = 
+  \Gamma(\Delta)^{-1} \int_0^\infty \ud\alpha_j\, \alpha_j^{\Delta-1} e^{-\alpha_j (z_0^2+|\vec{z}-\vec{x}_j|^2)}$$
+giving
+\begin{equation}\label{eq:K3multint}
+\begin{split}
+K(\vec{x}_1,\vec{x}_2,\vec{x}_3) = C^3 \Gamma(\Delta)^{-3}
+ &\int_0^\infty \ud\alpha_1\, \alpha_1^{\Delta-1}
+  \int_0^\infty \ud\alpha_2\, \alpha_2^{\Delta-1}
+  \int_0^\infty \ud\alpha_3\, \alpha_3^{\Delta-1} \times \\
+ &\int_0^\infty \ud z_0\, z_0^{3\Delta-(d+1)} e^{-(\alpha_1+\alpha_2+\alpha_3)z_0^2} \times \\
+ &\int_{\mathbb{R}^d} \ud^d z\, e^{-(\alpha_1|\vec{z}-\vec{x}_1|^2 + \alpha_2|\vec{z}-\vec{x}_2|^2 + \alpha_3|\vec{z}-\vec{x}_3|^2)}
+\end{split}
+\end{equation}
+
+The $z_0$-integral is easily evaluated making the substitution $t=z_0^2$
+\begin{equation*}
+\begin{split}
+\int_0^\infty \ud z_0\, z_0^{3\Delta-(d+1)} e^{-(\alpha_1+\alpha_2+\alpha_3)z_0^2}
+&= \frac12 \int_0^\infty \ud t\, t^{(3\Delta-d-2)/2} e^{-(\alpha_1+\alpha_2+\alpha_3)t} \\
+&= \frac12 \Gamma\left(\frac{3\Delta-d}{2}\right) (\alpha_1+\alpha_2+\alpha_3)^{-(3\Delta-d)/2}
+\end{split}
+\end{equation*} 
+
+For the $\vec{z}$-integral we complete the square in the exponential
+\begin{multline*}
+\alpha_1|\vec{z}-\vec{x}_1|^2 + \alpha_2|\vec{z}-\vec{x}_2|^2 + \alpha_3|\vec{z}-\vec{x}_3|^2 = \\
+= (\alpha_1+\alpha_2+\alpha_3)
+  \left(
+         \vec{z} - \frac{ \alpha_1 \vec{x}_1 + 
+                          \alpha_2 \vec{x}_2 + 
+                          \alpha_3 \vec{x}_3 }
+                        { \alpha_1 + \alpha_2 + \alpha_3 }
+  \right)^2 \\
++
+\frac{ \alpha_1 \alpha_2 |\vec{x}_1-\vec{x}_2|^2 + 
+       \alpha_1 \alpha_3 |\vec{x}_1-\vec{x}_3|^2 + 
+       \alpha_2 \alpha_3 |\vec{x}_2-\vec{x}_3|^2 }
+     { \alpha_1 + \alpha_2 + \alpha_3 }.
+\end{multline*}
+
+This gives
+\begin{multline*}
+\int_{\mathbb{R}^d} \ud^d z\, e^{-(\alpha_1|\vec{z}-\vec{x}_1|^2 + \alpha_2|\vec{z}-\vec{x}_2|^2 + \alpha_3|\vec{z}-\vec{x}_3|^2)} = \\
+= \left( \frac{\pi}{\alpha_1+\alpha_2+\alpha_3} \right)^{d/2} \exp{\left(-\frac{ \alpha_1 \alpha_2 |\vec{x}_1-\vec{x}_2|^2 + 
+       \alpha_1 \alpha_3 |\vec{x}_1-\vec{x}_3|^2 + 
+       \alpha_2 \alpha_3 |\vec{x}_2-\vec{x}_3|^2 }
+     { \alpha_1 + \alpha_2 + \alpha_3 }\right)}
+\end{multline*}
+
+Eq.~(\ref{eq:K3multint}) then becomes
+\begin{multline}\label{eq:K3alpha3}
+%K(\vec{x}_1,\vec{x}_2,\vec{x}_3) = C^3 \Gamma(\Delta)^{-3} \frac12 \Gamma\left(\frac{3\Delta-d}{2}\right) \pi^{-d/2} \times \\
+  \int_0^\infty \ud\alpha_1
+  \int_0^\infty \ud\alpha_2
+  \int_0^\infty \ud\alpha_3\,
+    (\alpha_1 \alpha_2 \alpha_3)^{\Delta-1}
+    (\alpha_1+\alpha_2+\alpha_3)^{-3\Delta/2} \times \\
+  \exp\left(
+            -\frac{ \alpha_1 \alpha_2 |\vec{x}_1-\vec{x}_2|^2 + 
+                    \alpha_1 \alpha_3 |\vec{x}_1-\vec{x}_3|^2 + 
+                    \alpha_2 \alpha_3 |\vec{x}_2-\vec{x}_3|^2 }
+                  { \alpha_1 + \alpha_2 + \alpha_3 }
+      \right) 
+\end{multline}
+
+To solve this triple integral we make a change of variables. The idea is to integrate over the sum $\alpha_1+\alpha_2+\alpha_3$, letting it be one variable of integration. We do this by setting
+\begin{align*}
+\alpha_1 &= \alpha \beta_1 \\
+\alpha_2 &= \alpha \beta_2 \\
+\alpha_3 &= \alpha (1-\beta_1-\beta_2).
+\end{align*}
+The expression $1-\beta_1-\beta_2$ will by obvious reasons be denoted by $\beta_3$.
+
+The measure becomes
+$$\ud\alpha_1\, \ud\alpha_2\, \ud\alpha_3 = \alpha^2 \ud\alpha\, \ud\beta_1\, \ud\beta_2$$
+and the range of integration is
+\begin{align*}
+\alpha &\in (0,\infty) \\
+(\beta_1,\beta_2) &\in D = \{ (\beta_1,\beta_2)\ |\ 0 \leq \beta_1,\beta_2 \leq 1;\ \beta_1+\beta_2 \leq 1\}.
+\end{align*}
+The integral in (\ref{eq:K3alpha3}) then becomes
+\begin{multline*}
+\int\!\!\!\int_D \ud\beta_1\,\ud\beta_2\, (\beta_1 \beta_2 \beta_3)^{\Delta-1} \times \\
+\int_0^\infty \ud\alpha\, \alpha^{\frac{3\Delta}{2}-1}
+  e^{ -\alpha(\beta_1 \beta_2 |\vec{x}_1-\vec{x}_2|^2 +
+              \beta_1 \beta_3 |\vec{x}_1-\vec{x}_3|^2 + 
+              \beta_2 \beta_3 |\vec{x}_2-\vec{x}_3|^2) }.
+\end{multline*}
+
+The $\alpha$-integral is easy to perform, giving
+$$\Gamma\left(\frac{3\Delta}{2}\right)
+    (\beta_1 \beta_2 |\vec{x}_1-\vec{x}_2|^2 +
+     \beta_1 \beta_3 |\vec{x}_1-\vec{x}_3|^2 + 
+     \beta_2 \beta_3 |\vec{x}_2-\vec{x}_3|^2)^{-3\Delta/2}.
+$$
+
+This leaves us with a double integral
+\begin{multline*}
+  \int\!\!\!\int_D \ud\beta_1\, \ud\beta_2\,
+    (\beta_1 \beta_2 \beta_3)^{\Delta-1} \times \\
+    (\beta_1 \beta_2 |\vec{x}_1-\vec{x}_2|^2 +
+     \beta_1 \beta_3 |\vec{x}_1-\vec{x}_3|^2 + 
+     \beta_2 \beta_3 |\vec{x}_2-\vec{x}_3|^2)^{-3\Delta/2}.
+\end{multline*}
+
+Up to now $\beta_3$ has denoted the expression $1-\beta_1-\beta_2$. Now we will however make $\beta_3$ a variable of integration, extending the double integral to a triple integral by insertion of a $\delta$ expression. The integral becomes
+\begin{multline*}
+  \int_0^\infty \ud\beta_1 \int_0^\infty \ud\beta_2 \int_0^\infty \ud\beta_3\,
+    (\beta_1 \beta_2 \beta_3)^{\Delta-1} \times \\
+    (\beta_1 \beta_2 |\vec{x}_1-\vec{x}_2|^2 +
+     \beta_1 \beta_3 |\vec{x}_1-\vec{x}_3|^2 + 
+     \beta_2 \beta_3 |\vec{x}_2-\vec{x}_3|^2)^{-3\Delta/2} \times \\
+    \delta(\beta_1+\beta_2+\beta_3-1).
+\end{multline*}
+
+Once again we make a change of variables, setting
+\begin{align*}
+\beta_1 &= \gamma \gamma_1 \\
+\beta_2 &= \gamma \gamma_2 \\
+\beta_3 &= \gamma
+\end{align*}
+with measure
+$$\ud\beta_1\, \ud\beta_2\, \ud\beta_3 = \gamma^2 \ud\gamma\, \ud\gamma_1\, \ud\gamma_2$$
+and range of integration
+$$\gamma,\gamma_1,\gamma_2 \in (0,\infty).$$
+The integral then turns to
+\begin{multline*}
+  \int_0^\infty \ud\gamma_1
+  \int_0^\infty \ud\gamma_2
+  \int_0^\infty \ud\gamma\, \gamma^{-1} (\gamma_1 \gamma_2)^{\Delta-1} \times \\
+    (\gamma_1 \gamma_2 |\vec{x}_1-\vec{x}_2|^2 +
+     \gamma_1 |\vec{x}_1-\vec{x}_3|^2 +
+     \gamma_2 |\vec{x}_2-\vec{x}_3|^2)^{-3\Delta/2} \times\\
+    \delta(\gamma(\gamma_1+\gamma_2+1)-1)
+\end{multline*}
+
+Here the $\gamma$-integral is trivial
+$$\int_0^\infty \ud\gamma\, \gamma^{-1} \delta(\gamma(\gamma_1+\gamma_2+1)-1) = 1$$
+leaving us with the integral
+\begin{multline*}
+\int_0^\infty \ud\gamma_1 \int_0^\infty \ud\gamma_2\,
+  (\gamma_1 \gamma_2)^{\Delta-1} \times \\
+    (\gamma_1 \gamma_2 |\vec{x}_1-\vec{x}_2|^2 +
+     \gamma_1 |\vec{x}_1-\vec{x}_3|^2 +
+     \gamma_2 |\vec{x}_2-\vec{x}_3|^2)^{-3\Delta/2}
+\end{multline*}
+
+This final double integral is in fact easier than it looks. We start with the $\gamma_2$-integral,
+\begin{multline*}
+\int_0^\infty \ud\gamma_2\, \gamma_2^{\Delta-1} \left(\gamma_2(\gamma_1|\vec{x}_1-\vec{x}_2|^2+|\vec{x}_2-\vec{x}_3|^2) + \gamma_1|\vec{x}_1-\vec{x}_3|^2\right)^{-3\Delta/2} = \\
+= \Gamma\left(\frac{3\Delta}{2}\right)^{-1} \Gamma(\Delta) \Gamma\left(\frac{\Delta}{2}\right) \left( \gamma_1 |\vec{x}_1-\vec{x}_2|^2 + |\vec{x}_2-\vec{x}_3|^2 \right)^{-\Delta} \left(\gamma_1 |\vec{x}_1-\vec{x}_3|^2\right)^{-\Delta/2} \\
+= \text{constant} \times |\vec{x}_1-\vec{x}_3|^{-\Delta} \gamma_1^{-\Delta/2} \left( \gamma_1 |\vec{x}_1-\vec{x}_2|^2 + |\vec{x}_2-\vec{x}_3|^2 \right)^{-\Delta}
+\end{multline*}
+\todo{Add reference to equation in Gamma Function section}
+
+In the same way the $\gamma_1$-integral becomes
+\begin{multline*}
+\int_0^\infty \ud\gamma_1\, \gamma_1^{-\Delta/2-1} \left( \gamma_1 |\vec{x}_1-\vec{x}_2|^2 + |\vec{x}_2-\vec{x}_3|^2 \right)^{-\Delta} = \\
+= \Gamma(\Delta)^{-1} \Gamma\left(\frac{\Delta}{2}\right)^2 |\vec{x}_1-\vec{x}_2|^{-\Delta} |\vec{x}_2-\vec{x}_3|^{-\Delta}.
+\end{multline*}
+
+We conclude that
+$$
+K(\vec{x}_1,\vec{x}_2,\vec{x}_3) = \text{constant} \times 
+  |\vec{x}_1-\vec{x}_2|^{-\Delta}
+  |\vec{x}_1-\vec{x}_3|^{-\Delta}
+  |\vec{x}_2-\vec{x}_3|^{-\Delta}
+$$
+in agreement with the prediction from conformicity (eq.~(???)).
+
+\todo{Check value of constant OR use ``absorbing'' constant $C$}
+
+
+

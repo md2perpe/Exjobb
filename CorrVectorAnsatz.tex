@@ -1,0 +1,108 @@
+%\section{Vector Green Function}
+We will calculate the Green function for a massless vector gauge boson. The field $A_\mu$ is described by the equation
+\begin{equation}\label{eq:Fpde}
+D_\mu F_{\mu\nu} = J_\nu,
+\end{equation}
+where 
+\begin{equation}\label{eq:Fexp}
+F_{\mu\nu}=D_\mu A_\nu - D_\nu A_\mu
+\end{equation}
+and the source of the field, $J_\nu$, is a conserved current:
+\begin{equation}\label{eq:Jcons}
+\mathrm{div} J = D_\nu J^\nu = \frac{1}{\sqrtg} \partial_\nu (\sqrtg J^\nu) = 0.
+\end{equation}
+
+Inserting eq.~(\ref{eq:Fexp}) into eq.~(\ref{eq:Fpde}) gives
+$$J^\nu = D^\mu \left( D_\mu A_\nu - D_\nu A_\mu \right) = D^\mu D_\mu A_\nu - D^\mu D_\nu A_\mu.$$
+The last term can be rewritten:
+$$D^\mu D_\nu A_\mu = D_\nu D^\mu A_\mu + R^\rho{}_{\mu\nu}{}^\mu A_\rho = D_\nu (D \cdot A) + R^\rho{}_\nu A_\rho.$$
+Inserting $R^\rho{}_\nu = -d\, \delta_\nu^\rho$ thus gives us
+$$J^\nu = \Box A_\nu - D_\nu (D \cdot A) + d A_\nu.$$
+Now, since eq.~(\ref{eq:Fpde}) only contains $F_{\mu\nu}$, which is invariant under the gauge transformation $A_\mu \to A_\mu + D_\mu \Lambda$, we can choose our gauge $\Lambda$ so that $D \cdot A = D^\mu A_\mu = 0$ (Lorentz gauge). This gives us our final equation for $A_\mu$:
+\begin{equation}\label{eq:Apde}
+\Box A_\mu + d A_\mu = J_\mu.
+\end{equation}
+
+The solution of eq.~(\ref{eq:Apde}) is given by
+$$A_\mu(x) = \int G_{\mu\nu'}(x,x') J^{\nu'}(x')\, \ud V(x'),$$
+where $G_{\mu\nu'}(x,x')$ is the Green function. This is a two-point function which is a \emph{one-index tensor at each of the points $x$ and $x'$.} Primed indices (like $\nu'$ above) of course refer to $x'$ while unprimed ($\mu$) indices refer to $x$. The Green function should satisfy
+$$J_\mu(x) = \int (\Box^{(x)} + d)G_{\mu\nu'}(x,x') J^{\nu'}(x')\, \ud V(x').$$
+It is then natural to suppose that one should have \footnote{$g_{\mu\nu'}(x,x')$ is the \emph{parallel propagator}; for $x=x'$ it is just $g_{\mu\nu}(x)$.}
+$$(\Box^{(x)} + d)G_{\mu\nu'}(x,x') = g_{\mu\nu'}(x,x') \delta_\AdS(x,x'),$$
+but this is not necessarily the case. The right hand side could differ from this by a derivative $\partial_\mu \Lambda$, since
+\begin{equation}\label{eq:equivgnd}
+\begin{split}
+\int \partial_\nu \Lambda\, J^\nu\, \ud V &= \int \partial_\nu \Lambda\, J^\nu \sqrtg\, \ud^{d+1}x \\
+&= -\int \Lambda\, \partial_\nu \left(\sqrtg J^\nu\right) \ud^{d+1}x \\
+&= -\int \Lambda\, \frac{1}{\sqrtg} \partial_\nu \left( \sqrtg J^\nu \right) \sqrtg\, \ud^{d+1}x \\
+&= -\int \Lambda\, \mathrm{div} J\, \ud V = 0,
+\end{split}
+\end{equation}
+where we have assumed $J$ to vanish at infinity so that we get no boundary terms.
+For this reason, we introduce an equivalence relation by
+$$A_\nu \sim B_\nu$$
+if for some $\Lambda$
+$$A_\nu - B_\nu = \partial_\nu \Lambda$$
+so that
+$$\int A_\nu\, J^\nu\, \ud V = \int B_\nu\, J^\nu\, \ud V.$$
+
+We should thus have
+\begin{equation}\label{eq:Gpde}
+(\Box^{(x)} + d)G_{\mu\nu'}(x,x') \sim g_{\mu\nu'}(x,x') \delta_\AdS(x,x').
+\end{equation}
+
+The AdS invariance of $G_{\mu\nu}$ forces it to be a linear combination of
+$D_\mu D_{\nu'} u$ and $D_\mu u\,  D_{\nu'} u$,
+$$G_{\mu\nu'} = F(u) D_\mu D_{\nu'} u + S(u) D_\mu u\, D_{\nu'}u.$$
+It is however easily shown that
+$$F(u) D_\mu D_{\nu'} u \sim - F'(u) D_\mu u\, D_{\nu'}u,$$
+so we only have to consider one kind of term. We choose to work with $D_\mu D_{\nu'} u$ and thus make the ansatz
+$$G_{\mu\nu'} = F(u) D_\mu D_{\nu'} u.$$
+
+Using the identity
+$$\Box \left( A B \right) = \Box A\, B + 2 D^\rho A\, D_\rho B + A\, \Box B$$
+we get
+\begin{equation}\label{eq:boxG}
+\Box^{(x)}G_{\mu\nu'} = \Box^{(x)} F(u)\, D_\mu D_{\nu'} u + 2 D^\rho F(u)\, D_\rho D_\mu D_{\nu'} u + F(u)\, \Box^{(x)} D_\mu D_{\nu'} u.
+\end{equation}
+
+Here, using the properties of $u$ from \todo{Appendix ???} we have
+\begin{equation*}
+\begin{split}
+\Box^{(x)} F(u) &= D^\rho D_\rho F(u) = D^\rho \left[ F'(u) D_\rho u \right] \\
+&= F''(u) D^\rho u\, D_\rho u + F'(u) D^\rho D_\rho u \\
+&= u (2+u) F''(u) + (d+1)(1+u) F'(u),
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+D^\rho F(u)\, D_\rho D_\mu D_{\nu'} u &= F'(u)\, D^\rho u\, g_{\rho\mu} D_{\nu'} u \\
+&= F'(u)\, D_\mu u\, D_{\nu'} u \\
+&\sim -F(u) D_\mu D_{\nu'} u
+\end{split}
+\end{equation*}
+and
+$$\Box^{(x)} D_\mu D_{\nu'} u = D_\mu D_{\nu'} u.$$
+Inserting this into (\ref{eq:boxG}) gives
+$$\Box^{(x)}G_{\mu\nu'} \sim \Big( u(2+u) F''(u) + (d+1)(1+u) F'(u) - F(u) \Big)\, D_\mu D_{\nu'} u$$
+which makes (\ref{eq:Gpde}) become
+\begin{multline*}
+\Big( u(2+u) F''(u) + (d+1)(1+u) F'(u) +(d-1) F(u) \Big)\, D_\mu D_{\nu'} u \\
+\sim g_{\mu\nu'}(x,x') \delta_\AdS(x,x').
+\end{multline*}
+
+For $x \neq x'$, we thus (???really???) shall have
+$$u(2+u) F''(u) + (d+1)(1+u) F'(u) + (d-1) F(u) = 0.$$
+Comparing this with (\ref{eq:Hode}) directly gives us the solution; it is given by setting $m^2 = -(d-1)$ (i.e.\ $\nu=d/2-1$, $\Delta = d-1$) in (\ref{eq:scalargreen}):
+\begin{equation*}
+\begin{split}
+F(u) &= C \frac{1}{(u+1)^\Delta} {}_2F_1 \left( \frac{\Delta}{2}, \frac{\Delta+1}{2}; \nu+1; \frac{1}{(u+1)^2} \right) \\
+&= C \frac{1}{(u+1)^{d-1}} {}_2F_1 \left( \frac{d-1}{2}, \frac{d}{2}; \frac{d}{2}; \frac{1}{(u+1)^2} \right) \\
+&= C [u(u+2)]^{-(d-1)/2}
+\end{split}
+\end{equation*}
+for some constant $C$, not necessarily having the same value as in (\ref{eq:scalargreen}).
+
+\todo{...}
+$$G_{\mu\nu'} = C [u(u+2)]^{-\frac{d-1}{2}}\, D_\mu D_{\nu'} u$$
+\todo{Insert expression for $D_\mu D_{\nu'} u$ and check behavior for $u \sim 0$ (and $u \to \infty$)}

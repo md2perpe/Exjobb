@@ -1,0 +1,61 @@
+\subsection{Definition}
+\todo{How to introduce AdS?}
+
+Among the known exact solutions of Einstein's field equations with a cosmological constant ($\Lambda\ne 0$) are the {\em de~Sitter spaces} of constant curvature. Usually, however, by a de~Sitter space one means a space of constant {\em positive} curvature. By an {\em anti-de~Sitter space} one then means a space of constant negative curvature. The term 'anti' origines from the fact that de~Sitter only considered spaces of constant positive curvature.
+\\\\
+Let $\mathbb{R}(d,2)$ be $\mathbb{R}^{d+2}$ equipped with the pseudo-scalar~product
+$$(\vec{X},T_1,T_2) \cdot (\vec{X'},T'_1,T'_2) = \vec{X}\cdot\vec{X'} - T_1 T'_1 - T_2 T'_2,$$
+where $\vec{X}\cdot\vec{X'} = X_0 X'_0 + \cdots + X_d X'_d$ is the usual scalar~product on $\mathbb{R}^d$.
+\footnote{More generally $\mathbb{R}(m,n)$ is defined as $\mathbb{R}^{m+n}$ equipped with the pseudo-scalar~product $(\vec{X},\vec{Y})\cdot(\vec{X}',\vec{Y}')=\vec{X}\cdot\vec{X'}-\vec{Y}\cdot\vec{Y'}$, where $\vec{X}\cdot\vec{X'}=X_1 X'_1+\cdots+X_m X'_m$ and $\vec{Y}\cdot\vec{Y'}=Y_1 Y'_1+\cdots+Y_n Y'_n$ are the ordinary scalar products on $\mathbb{R}^m$ and $\mathbb{R}^n$ respectively.}
+
+The $(d+1)$-dimensional Anti-de~Sitter Space AdS$_{d+1}$ can then be considered to be the hyperboloid (or pseudo-sphere)
+\begin{equation}\label{eq:adsdef}\AdS_{d+1}=\{X=(\vec{X},T_1,T_2)\in\mathbb{R}(d,2) \quad |\quad X^2=-R^2\},\end{equation}
+endowed with the induced metrics $\ud s^2=\ud X^2=\ud\vec{X}^2-{\ud T_1}^2-{\ud T_2}^2$.
+
+\subsubsection{Normalization}
+By setting $\bar{X}=X/R$ we get $\bar{X}^2=-1$, which we will call the {\em normalized} AdS space. The advantage of working in this space is of course that we get rid of $R$ hanging around everywhere. The disadvantage is that we can't use dimensional analysis to check our formulae.
+
+\subsubsection{Covering space}
+In the space (\ref{eq:adsdef}), however, there exist closed time-like curves, i.e. the time will be cyclic. Therefore the AdS is actually defined to be the {\em (universal) covering space} of it, that is, we consider taking an infinite number of copies of the hyperboloid (\ref{eq:adsdef}), cutting them up ``vertically'' into ``sheets'', and then gluing them together to form a ``AdS roll''. 
+(See fig.~\ref{fig:cover} showing two laps of the ``AdS roll''.)
+%\todo{rewrite!!!}
+\begin{figure}[h]
+\begin{center}
+%\includegraphics[width=10cm]{cover.eps}
+%\includegraphics[width=6cm]{hypersimple.eps}
+\end{center}
+\caption{Covering space}\label{fig:cover}
+\end{figure}
+
+\subsubsection{Complexification}
+Because of analyticity in almost all expressions that occur, the space is often complexified. That is, we define the {\em complexification} of $\AdS_{d+1}$ by
+
+$$\AdS_{d+1}^{(c)}=\{Z\in\mathbb{C}^{d+2}\:|\:Z^2=-R^2\},$$
+where $Z^2=Z_1^2+\cdots+Z_{d+2}^2$.
+
+The non-complexified AdS$_{d+1}$ is then given as a subset of $\AdS_{d+1}^{(c)}$ by
+$$\AdS_{d+1}=\{(\vec{X},iT_1,iT_2)\in \textrm{AdS}_{d+1}^{(c)}\quad|\quad\vec{X}\in\mathbb{R}^d;\,T_1,T_2\in\mathbb{R}\}$$
+
+\subsubsection{Euclidean continuation}
+\todo{Explain why this is important and useful}
+If we instead take another subset of $\AdS_{d+1}^{(c)}$
+$$\AdS_{d+1}^{(e)}=\{(\vec{X},iT_1,T_2)\in\AdS_{d+1}^{(c)}\quad|\quad\vec{X}\in\mathbb{R}^{d},\,T_1,T_2\in\mathbb{R}\}$$
+we get the {\em euclidean continuation} of AdS$_{d+1}$, which has a positive definite (`euclidean') metric. That this is true is easy to show:
+
+We start with the equation for $\AdS_{d+1}^{(e)}$
+$$\vec{X}^2-T_1^2+T_2^2=-R^2$$
+and differentiate it
+$$2\vec{X}\cdot \ud\vec{X}-2T_1 \ud T_1 + 2 T_2 \ud T_2=0$$
+By Cauchy-Schwartz inequality we then have
+$$\ud T_1^2 = \frac{(\vec{X}\cdot \ud\vec{X}+T_2 \ud T_2)^2}{T_1^2}\le\frac{(\vec{X}^2+T_2^2)(\ud\vec{X}^2+\ud T_2^2)}{T_1^2}=\frac{(T_1^2-R^2)(\ud\vec{X}^2+\ud T_2^2)}{T_1^2}$$
+so that
+\begin{equation*}\begin{split}
+\ud s^2 &= \ud\vec{X}^2 - \ud T_1^2 + \ud T_2^2\ge \ud\vec{X}^2-\frac{(T_1^2-R^2)(\ud\vec{X}^2 + \ud T_2^2)}{T_1^2} + \ud T_2^2\\
+&=\frac{R^2}{T_1^2}(\ud\vec{X}^2+  \ud T_2^2)\ge 0
+\end{split}\end{equation*}
+
+\todo{Type something more about euclidean continuation?}
+\\\\
+We will mostly be working in the euclidean continuation of the covering space of the normalized AdS space.
+
+???Will we???
